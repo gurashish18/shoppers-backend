@@ -12,17 +12,17 @@ const orderRoute = require("./routes/order");
 const stripeRoute = require("./routes/stripe");
 const cors = require("cors");
 const stripe = require("stripe")(
-  "sk_test_51LNs61SAr4qzbcBddAmWJCNoDEzJwsGilvnsjGxARgla57LRNlVgw0I4bz2vXBLr4Kv3ypHJ8o3o185JJOZMCAqX00vc0FF9lY"
+	"sk_test_51LNs61SAr4qzbcBddAmWJCNoDEzJwsGilvnsjGxARgla57LRNlVgw0I4bz2vXBLr4Kv3ypHJ8o3o185JJOZMCAqX00vc0FF9lY"
 );
 
 dotenv.config();
 
 mongoose
-  .connect(process.env.MONGO_URL)
-  .then(() => console.log("DB Connection Successfull!"))
-  .catch((err) => {
-    console.log(err);
-  });
+	.connect(process.env.MONGO_URL)
+	.then(() => console.log("DB Connection Successfull!"))
+	.catch((err) => {
+		console.log(err);
+	});
 
 app.use(cors());
 app.use(express.json());
@@ -34,5 +34,5 @@ app.use("/api/orders", orderRoute);
 app.use("/api/checkout", stripeRoute);
 
 app.listen(process.env.PORT || 8000, () => {
-  console.log("Backend server is running!");
+	console.log("Backend server is running!");
 });
